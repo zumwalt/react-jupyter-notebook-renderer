@@ -1,0 +1,70 @@
+.jupyter-notebook-container {
+  font-family: inherit;
+}
+
+.jupyter-notebook-loading {
+  font-size: 1.2em;
+  text-align: center;
+  color: #666;
+  padding: 20px;
+}
+
+.jupyter-notebook-cell {
+  margin-bottom: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.jupyter-notebook-cell-input {
+  background-color: #f9f9f9;
+  padding: 10px;
+}
+
+.jupyter-notebook-cell-output {
+}
+
+.jupyter-notebook-output-toggle {
+  cursor: pointer;
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.jupyter-notebook-output-text {
+  white-space: pre-wrap;
+}
+
+.jupyter-notebook-output-image {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Markdown cells */
+.jupyter-notebook-markdown-cell {
+  text-wrap: balance;
+}
+
+/* Code cells */
+.jupyter-notebook-code-content {
+  padding: 1rem;
+  overflow: auto; /* Ensure the code block is scrollable */
+  line-height: 1.5;
+}
+
+/* Code cell output */
+.jupyter-notebook-output-text {
+  white-space: pre-wrap;
+}
+
+.jupyter-notebook-output-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.jupyter-notebook-output-stream {
+  padding: 1rem;
+  white-space: pre-wrap;
+}
+
+.jupyter-notebook-output-error {
+  color: red;
+}
