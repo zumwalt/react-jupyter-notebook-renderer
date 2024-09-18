@@ -2,6 +2,8 @@ import React from "react";
 import Markdown, { defaultUrlTransform } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
+import rehypeKatex from "rehype-katex";
+import remarkMath from "remark-math";
 import DOMPurify from "dompurify";
 import styles from "../NotebookRenderer.module.css";
 import { NotebookRendererProps } from "../NotebookRenderer";
@@ -33,8 +35,8 @@ const MarkdownCell = ({ content, classNames }: MarkdownCellProps) => {
       }
     >
       <Markdown
-        remarkPlugins={[remarkGfm]}
-        rehypePlugins={[rehypeRaw]}
+        remarkPlugins={[remarkGfm, remarkMath]}
+        rehypePlugins={[rehypeRaw, rehypeKatex]}
         components={{
           img: ({ node, ...props }) => {
             // Sanitize src and alt attributes

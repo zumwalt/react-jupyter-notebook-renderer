@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { themes } from "prism-react-renderer";
 import MarkdownCell from "./components/MarkdownCell";
 import CodeCell from "./components/CodeCell";
+import "katex/dist/katex.min.css";
 import "./style.css";
 
 import styles from "./NotebookRenderer.module.css";
@@ -27,9 +28,6 @@ export interface NotebookRendererProps {
     notebookCodeContainer?: string;
     notebookCodeContent?: string;
   };
-  components?: {
-    Button?: React.ComponentType<React.ButtonHTMLAttributes<HTMLButtonElement>>;
-  };
 }
 
 interface Notebook {
@@ -39,8 +37,7 @@ interface Notebook {
 const JupyterNotebookRenderer = ({
   notebookContent,
   theme = themes.vsDark,
-  classNames,
-  components
+  classNames
 }: NotebookRendererProps) => {
   const [notebook, setNotebook] = useState<Notebook | null>(null);
 
@@ -68,7 +65,6 @@ const JupyterNotebookRenderer = ({
             cell={cell}
             theme={theme}
             classNames={classNames}
-            components={components}
           />
         );
       case "raw":
