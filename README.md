@@ -36,6 +36,8 @@ import { JupyterNotebookRenderer } from "react-jupyter-notebook-renderer";
   - `notebookOutputError`
   - `notebookCodeContainer`
   - `notebookCodeContent`
+- `components`: Custom components for the notebook:
+  - `Button`: Custom button component. Requires a `<button>` element.
 
 ## Example
 

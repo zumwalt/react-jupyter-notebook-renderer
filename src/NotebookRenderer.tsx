@@ -27,6 +27,9 @@ export interface NotebookRendererProps {
     notebookCodeContainer?: string;
     notebookCodeContent?: string;
   };
+  components?: {
+    Button?: React.ComponentType<React.ButtonHTMLAttributes<HTMLButtonElement>>;
+  };
 }
 
 interface Notebook {
@@ -36,7 +39,8 @@ interface Notebook {
 const JupyterNotebookRenderer = ({
   notebookContent,
   theme = themes.vsDark,
-  classNames
+  classNames,
+  components
 }: NotebookRendererProps) => {
   const [notebook, setNotebook] = useState<Notebook | null>(null);
 
@@ -58,7 +62,15 @@ const JupyterNotebookRenderer = ({
       case "markdown":
         return <MarkdownCell key={index} content={cell.source.join("")} />;
       case "code":
-        return <CodeCell key={index} cell={cell} theme={theme} />;
+        return (
+          <CodeCell
+            key={index}
+            cell={cell}
+            theme={theme}
+            classNames={classNames}
+            components={components}
+          />
+        );
       case "raw":
         return (
           <div

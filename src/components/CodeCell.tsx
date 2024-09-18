@@ -9,6 +9,7 @@ interface CodeCellProps {
   cell: any;
   theme: any;
   classNames?: NotebookRendererProps["classNames"];
+  components?: NotebookRendererProps["components"];
 }
 
 interface OutputRendererProps {
@@ -96,7 +97,7 @@ const OutputRenderer = ({ output, classNames }: OutputRendererProps) => {
   }
 };
 
-const CodeCell = ({ cell, theme, classNames }: CodeCellProps) => {
+const CodeCell = ({ cell, theme, classNames, components }: CodeCellProps) => {
   const [showOutput, setShowOutput] = useState(false);
 
   return (
@@ -141,14 +142,20 @@ const CodeCell = ({ cell, theme, classNames }: CodeCellProps) => {
           }
         >
           <Collapsible.Trigger asChild>
-            <button
-              className={
-                classNames?.notebookOutputToggle ||
-                styles["jupyter-notebook-output-toggle"]
-              }
-            >
-              {showOutput ? "Hide Output" : "Show Output"}
-            </button>
+            {components?.Button ? (
+              <components.Button>
+                {showOutput ? "Hide Output" : "Show Output"}
+              </components.Button>
+            ) : (
+              <button
+                className={
+                  classNames?.notebookOutputToggle ||
+                  styles["jupyter-notebook-output-toggle"]
+                }
+              >
+                {showOutput ? "Hide Output" : "Show Output"}
+              </button>
+            )}
           </Collapsible.Trigger>
           <Collapsible.Content>
             <CellOutput outputs={cell.outputs} />
