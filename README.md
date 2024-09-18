@@ -1,6 +1,6 @@
 # React Jupyter Notebook Renderer
 
-A simple React component for rendering Jupyter Notebooks.
+A simple, unstyled React component for rendering Jupyter Notebooks.
 
 ## Installation
 
@@ -11,9 +11,9 @@ npm install react-jupyter-notebook-renderer
 ## Usage
 
 ```tsx
-import { JupyterNotebookRenderer } from "react-jupyter-notebook-renderer";
+import { NotebookRenderer } from "react-jupyter-notebook-renderer";
 
-<JupyterNotebookRenderer notebookContent={notebookContent} />;
+<NotebookRenderer notebookContent={notebookContent} />;
 ```
 
 ## Props
